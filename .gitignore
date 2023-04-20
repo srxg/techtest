@@ -1,2 +1,4 @@
 *.class
 .vscode
+*.exe
+Java/test/Main.java
