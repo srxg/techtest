@@ -101,36 +101,39 @@ public class DLinkedList {
             if(this.head != null) {
                 this.head.setPrev(null);
             }
-        } else if(this.tail == toRemove) {
-            this.tail = this.tail.getPrev();
-            this.tail.setNext(null);
         } else {
-            DLink temp = this.head.getNext();
+            DLink temp = this.head;
             // need to check temp != null,
             // otherwise the loop would run forever
             // if the referenced node was not in t
             while(temp != toRemove && temp != null) {
                 temp = temp.getNext();
             }
+
             if(temp != null) {
-                // we essentially forget about the toRemove node
-                temp.getPrev().setNext(temp.getNext());
-                temp.getNext().setPrev(temp.getPrev());
+                if(temp == this.tail) {
+                    this.tail = this.tail.getPrev();
+                    this.tail.setNext(null);
+                } else {
+                    // leave it to garbage collection
+                    temp.getPrev().setNext(temp.getNext());
+                    temp.getNext().setPrev(temp.getPrev());
+                }
             }
         }
     }
 
     /**
-     * Returns the head of the doubly linked list.
-     * @return the head of the doubly linked list
+     * Returns the head of the list.
+     * @return the head of the list
      */
     public DLink getHead() {
         return this.head;
     }
 
     /**
-     * Returns the tail of the doubly linked list.
-     * @return the tail of the doubly linked list
+     * Returns the tail of the list.
+     * @return the tail of the list
      */
     public DLink getTail() {
         return this.tail;
