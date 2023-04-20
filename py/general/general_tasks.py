@@ -21,9 +21,7 @@ def fib(n):
 def sumFibEven(n):
     assert n>=0
     a,b = 0,2
-    r = b
-    sumf = 0
-    i = 0
+    r,sumf,i = b,0,0
     while i < n:
         sumf += r
         # the next even fib = 4 * current even fib + previous even fib
@@ -61,9 +59,9 @@ def getDupes(l1, l2):
     
     return res
 
-# stop as soon as any non-even digit is detected
 def checkInt(i):
     for digit in str(i):
+        # stop as soon as any non-even digit is detected
         if (int(digit) % 2 != 0):
             return False
     return True
@@ -71,8 +69,7 @@ def checkInt(i):
 # format X+XX+XXX+XXXX
 def returnValue(x):
     s,part = 0,0
-    for i in range(1,5):
+    for i in range(0,4):
         part = (part*10) + x
         s += part
     return s
-    

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "obj.h"
 #include "node.h"
 
 // should remove all nodes with even values from the indicated list, put them in a new list
@@ -15,8 +14,7 @@ struct node_t* even_nodes(struct node_t** head) {
     while(current != nullptr) {
         // remove current from the original if it holds an even value
         if(current->v % 2 ==0) {
-            // if the new list hasn't yet started
-            // set it's head to the current (even) node
+            // if the new list is empty, set it's head to the current (even) node
             if (newhead == nullptr) newhead = current;
             // otherwise just add the current node to the end of the new list
             else newtail->next = current; 
@@ -46,12 +44,3 @@ struct node_t* even_nodes(struct node_t** head) {
     // return the head of the new list
     return newhead;
 };
-
-// int main() {
-//     Obj test = Obj();
-//     Obj test2 = Obj();
-//     Obj test3 = Obj();
-//     test3.~Obj();
-//     std::cout << std::to_string(test3.nobjs()) << std::endl;
-//     return 1;   
-// }
