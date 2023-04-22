@@ -10,15 +10,16 @@ def fib(n):
         b=r
     return r
 
-# Write a program in a language of your choice to calculate
-# the sum of the first 100 even-valued
-# Fibonacci numbers
-# the evens = 
-# 2,8,34,144,610
 # want n=0 returns 2, n=1 returns 8, etc
 # want to calculate the n^th indexed even fib number s.t evenfib(0) = 2
 # BUT want the total sum of n even fib numbers.
-def sumFibEven(n):
+def sum_fib_even(n):
+    '''
+    Calculate the sum of the first n even-valued Fibonacci numbers.
+
+    :param n: The number of even-valued Fibonacci numbers to sum.
+    :return: The sum of the first n even-valued Fibonacci numbers.
+    '''
     assert n>=0, "n must be non-negative"
     a,b = 0,2
     r,sumf,i = b,0,0
@@ -34,7 +35,14 @@ def sumFibEven(n):
 
 
 # use the two pointer technique
-def getDupes(l1, l2):
+def get_dupes(l1, l2):
+    '''
+    Returns the intersection of the given sorted lists as an array
+    
+    :param l1: The first sorted list
+    :param l2: The second sorted list
+    :return: The intersection of l1 and l2 as an array
+    '''
     x, y, res = 0, 0, []
     
     while (x < len(l1)) and (y < len(l2)):
@@ -59,7 +67,13 @@ def getDupes(l1, l2):
     
     return res
 
-def checkInt(i):
+def only_even_digits(i):
+    '''
+    Checks if the given integer i contains only even digits
+
+    :param i: the integer to check
+    :return: true if i contains only even digits, false otherwise
+    '''
     while (i > 0):
         digit = i % 10;
         if (digit % 2) != 0:
@@ -68,7 +82,12 @@ def checkInt(i):
     return True
 
 # format X+XX+XXX+XXXX
-def returnValue(x):
+def return_value(x):
+    '''
+    Calculates the value of X+XX+XXX+XXXX where X=x
+    :param x: the integer to be used as X
+    :return: The result of X+XX+XXX+XXXX where X=x
+    '''
     result,part = 0,0
     for i in range(0,4):
         part = (part*10) + x

@@ -1,6 +1,6 @@
 #include "node.h"
 
-struct node_t* even_nodes(struct node_t** head) {
+struct node_t* even_nodes(node_t** head) {
     node_t* previous = nullptr;
     node_t* newhead = nullptr;
     node_t* newtail = nullptr;

@@ -1,5 +1,7 @@
 #include <stdlib.h>
-
+/*
+* Reverses the order of bits in a given byte.
+*/
 void reverse_bits(unsigned char* currentByte) {
     unsigned char reversed = 0;
     const int n = 8;
@@ -20,6 +22,11 @@ void reverse_bits(unsigned char* currentByte) {
     *currentByte = reversed;
 }
 
+/**
+ * Reverses a given array of n bytes such that the first
+ * bit of the first byte is swapped with the last bit of the last byte
+ * and so forth
+*/
 void reverse_bytes(unsigned char* ptr, size_t n) {
     for(size_t i = 0; i < (n/2); i++) {
         size_t comp_i = n-1-i;

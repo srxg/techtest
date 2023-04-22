@@ -1,10 +1,9 @@
 #include<stdlib.h>
 #include "node.h"
 
-// should remove all nodes with even values from the indicated list, put them in a new list
-// which is returned
+// removes all nodes with even values from the indicated list. Returns these evens in a list
 struct node_t* even_nodes(struct node_t** head) {
-    struct node_t* previous = NULL; // the node which comes before current in the original list
+    struct node_t* previous = NULL; // the node which comes before currentnode in the original list
     struct node_t* newhead = NULL;
     struct node_t* newtail = NULL;
 
