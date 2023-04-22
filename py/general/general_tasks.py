@@ -19,7 +19,7 @@ def fib(n):
 # want to calculate the n^th indexed even fib number s.t evenfib(0) = 2
 # BUT want the total sum of n even fib numbers.
 def sumFibEven(n):
-    assert n>=0
+    assert n>=0, "n must be non-negative"
     a,b = 0,2
     r,sumf,i = b,0,0
     while i < n:
@@ -60,16 +60,17 @@ def getDupes(l1, l2):
     return res
 
 def checkInt(i):
-    for digit in str(i):
-        # stop as soon as any non-even digit is detected
-        if (int(digit) % 2 != 0):
+    while (i > 0):
+        digit = i % 10;
+        if (digit % 2) != 0:
             return False
+        i //= 10
     return True
 
 # format X+XX+XXX+XXXX
 def returnValue(x):
-    s,part = 0,0
+    result,part = 0,0
     for i in range(0,4):
         part = (part*10) + x
-        s += part
-    return s
+        result += part
+    return result

@@ -13,48 +13,45 @@ void print_list(struct node_t* head) {
 }
 
 int main() {
-    Obj test = Obj();
-    Obj test2 = Obj();
-    Obj test3 = Obj();
-    test3.~Obj();
-    std::cout << std::to_string(test3.nobjs()) << std::endl;
+    // Test case 1
+    std::cout << "Number of objects created: " << Obj::count << std::endl;
 
-    struct node_t* head = NULL;
-    struct node_t* even_head = NULL;
-
-    // Insert some sample data into the original list
-    struct node_t* new_node;
-    for (unsigned i = 10; i > 0; i--) {
-        new_node = new node_t;
-        new_node->v = i;
-        new_node->next = head;
-        head = new_node;
+    {
+        Obj obj1;
+        Obj obj2 = obj1;
+        Obj obj3;
+        obj3 = obj1;
+        obj1 = obj3;
+        std::cout << "Number of objects created: " << obj1.nobjs() << std::endl;
     }
 
-    std::cout << "Original list:" << std::endl;
-    print_list(head);
+    std::cout << "Number of objects created: " << Obj::count << std::endl;
 
-    even_head = even_nodes(&head);
+    // Test case 2
+    {
+        Obj obj1;
+        Obj obj2 = obj1;
+        Obj obj3;
+        obj3 = obj1;
+        obj1 = obj3;
+        std::cout << "Number of objects created: " << obj1.nobjs() << std::endl;
 
-    std::cout << "List after removing even nodes:" << std::endl;
-    print_list(head);
+        {
+            Obj obj4;
+            std::cout << "Number of objects created: " << obj1.nobjs() << std::endl;
+        }
 
-    std::cout << "New list with even nodes:" << std::endl;
-    print_list(even_head);
-
-    // Free memory
-    struct node_t* temp;
-    while (head != nullptr) {
-        temp = head;
-        head = head->next;
-        delete temp;
+        std::cout << "Number of objects created: " << obj1.nobjs() << std::endl;
     }
 
-    while (even_head != nullptr) {
-        temp = even_head;
-        even_head = even_head->next;
-        delete temp;
-    }
+    std::cout << "Number of objects created: " << Obj::count << std::endl;
+
+    // Test case 3
+    Obj* obj_ptr = new Obj();
+    std::cout << "Number of objects created: " << obj_ptr->nobjs() << std::endl;
+    delete obj_ptr;
+
+    std::cout << "Number of objects created: " << Obj::count << std::endl;
 
     return 0;
 }

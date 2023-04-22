@@ -12,7 +12,7 @@ public class Task {
      * @param input the string to check for balanced brackets
      * @return true if the brackets are balanced, false otherwise
      */
-    public static boolean isBalanced(String input) {
+    public static boolean isBalanced(final String input) {
         StackDLinkedList stack = new StackDLinkedList();
 
         for (char ch : input.toCharArray()) {            
@@ -53,7 +53,7 @@ public class Task {
      * @param input the string to check for balanced brackets
      * @return true if the brackets are balanced, false otherwise
      */
-    public static boolean isBalancedWithMap(String input) {
+    public static boolean isBalancedWithMap(final String input) {
         StackDLinkedList stack = new StackDLinkedList();
 
         for (char ch : input.toCharArray()) {
