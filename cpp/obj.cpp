@@ -1,4 +1,3 @@
-#include<iostream>
 #include "obj.h"
 
 int Obj::count = 0; 
